@@ -5,10 +5,37 @@ import { net, mark, find, NUM } from "./kit.js";
 
 const stop = (_e, cx) => cx.stop_propagation();
 
-function tabName(c) {
-  if (c.named) return c.name;
+// The session name an agent puts in its terminal title (Claude Code, Codex and
+// friends set it, and /rename changes it), minus the spinner or status glyphs
+// they put in front. Titles that are just a program, a folder or user@host
+// don't count.
+function sessionTitle(p) {
+  const raw = String(p?.title ?? "").replace(/^[^\p{L}\p{N}]+/u, "").trim();
+  if (!raw) return null;
+  const low = raw.toLowerCase();
+  const prog = String(p.program?.name ?? "").toLowerCase();
+  if (low === prog || low === String(p.app ?? "").toLowerCase() || low === String(p.program?.key ?? "").toLowerCase()) return null;
+  if (/^(~|\/)/.test(raw) || /^[\w.-]+@[\w.-]+/.test(raw)) return null;
+  if (/^(claude( code)?|codex|zsh|bash|fish|sh|-?zsh)$/i.test(raw)) return null;
+  return raw;
+}
+
+// The pane a tab is named after: the focused agent, else any agent, else the first.
+function lead(c) {
   const ps = panes().filter((p) => p.tab === c.id);
-  return (ps.find((p) => p.program?.agent) ?? ps[0])?.program?.name ?? c.name;
+  return ps.find((x) => x.focused && x.program?.agent) ?? ps.find((x) => x.program?.agent) ?? ps[0];
+}
+
+function tabName(c, p = lead(c)) {
+  if (c.named) return c.name;
+  return sessionTitle(p) ?? p?.program?.name ?? c.name;
+}
+
+// The agent's logo in front of the name (only for agents, not plain shells).
+function logo(t, p, on) {
+  const prog = p?.program;
+  if (!prog?.agent || !prog.icon) return null;
+  return prog.tint ? svg(prog.icon).size(14).flex_none().text_color(on ? t.foreground : t.muted) : image(prog.icon).size(14).flex_none();
 }
 
 // The tab bar above the net: tabs as pills numbered like courts on the order
@@ -49,7 +76,7 @@ export class Tabs {
 
   tab(t, c, i, shown, space, n) {
     const on = c.active;
-    const name = tabName(c);
+    const p = lead(c), name = tabName(c, p), icon = logo(t, p, on);
     return h_flex().id(`tab-${c.id}`).h(28).pl(10).pr(on ? 7 : 12).gap(7).flex_none().max_w(240).items_center().rounded(14)
       .text_size(12.8).border(1)
       .when(on, (el) => el.bg(t.raised).border_color(t.foreground + "38").text_color(t.foreground))
@@ -63,6 +90,7 @@ export class Tabs {
       })
       .on_mouse_down("right", (_e, cx) => { cx.stop_propagation(); openOverlay({ mod: "menu", kind: "popup", width: 200, props: { tab: "tab", target: { id: c.id, space: space.id } } }); })
       .child(div().flex_none().font_family(NUM).font_bold().text_size(14).pt(2).text_color(on ? t.accent : t.dim).child(n ? String(n) : "·"))
+      .when(Boolean(icon), (el) => el.child(icon))
       .child(div().min_w(0).truncate().child(c.zoomed ? `${name} ⤢` : name))
       .when(Boolean(c.status) && c.status !== "idle", (el) => el.child(mark(t, c.status, 8)))
       .when(on, (el) => el.child(div().id(`close-${c.id}`).flex_none().p(2).rounded(8).text_color(t.dim)
