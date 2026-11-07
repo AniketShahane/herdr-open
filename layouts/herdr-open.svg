@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200">
+  <defs>
+    <pattern id="mesh" width="2" height="2" patternUnits="userSpaceOnUse"><rect width="1" height="1" fill="#eef2e4" opacity="0.25"/><rect x="1" y="1" width="1" height="1" fill="#eef2e4" opacity="0.25"/></pattern>
+    <radialGradient id="ball" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#f4ff8c"/><stop offset="1" stop-color="#a9c42a"/></radialGradient>
+  </defs>
+  <rect width="320" height="200" rx="6" fill="#0a1810"/>
+  <rect width="78" height="200" fill="#0c1c13"/>
+  <g fill="#ffffff" opacity="0.03"><rect y="40" width="78" height="12"/><rect y="64" width="78" height="12"/><rect y="88" width="78" height="12"/><rect y="112" width="78" height="12"/><rect y="136" width="78" height="12"/></g>
+  <rect x="78" width="242" height="18" fill="#0c1c13"/>
+  <circle cx="9" cy="9" r="3.2" fill="url(#ball)"/>
+  <text x="15" y="11.5" font-family="Hoefler Text, Georgia, serif" font-style="italic" font-size="8" fill="#eef2e4">Herdr</text>
+  <text x="39" y="11.5" font-family="DIN Condensed, Arial Narrow, sans-serif" font-weight="bold" font-size="6" letter-spacing="0.8" fill="#d8f24b">OPEN</text>
+  <rect x="84" y="5" width="34" height="9" rx="4.5" fill="#1a3927" stroke="#eef2e4" stroke-opacity="0.25" stroke-width="0.5"/>
+  <rect x="122" y="5" width="28" height="9" rx="4.5" fill="none"/>
+  <circle cx="158" cy="9.5" r="4" fill="#d8f24b"/>
+  <rect x="0" y="18" width="320" height="0.9" fill="#eef2e4"/>
+  <rect x="0" y="18.9" width="320" height="2.8" fill="url(#mesh)"/>
+  <rect x="0" y="16" width="1.6" height="6" fill="#b3c6b2"/><rect x="318.4" y="16" width="1.6" height="6" fill="#b3c6b2"/>
+  <g>
+    <rect x="6" y="32" width="10" height="7" rx="1" fill="#3a8a4c" stroke="#fff" stroke-opacity="0.85" stroke-width="0.5"/>
+    <line x1="11" y1="31.5" x2="11" y2="39.5" stroke="#fff" stroke-width="0.5"/>
+    <rect x="19" y="33.5" width="34" height="3.5" rx="1" fill="#eef2e4"/>
+    <rect x="6" y="44" width="10" height="7" rx="1" fill="#c8643c" stroke="#fff" stroke-opacity="0.85" stroke-width="0.5"/>
+    <line x1="11" y1="43.5" x2="11" y2="51.5" stroke="#fff" stroke-width="0.5"/>
+    <rect x="19" y="45.5" width="28" height="3.5" rx="1" fill="#7d9682"/>
+  </g>
+  <circle cx="9" cy="105" r="2.2" fill="url(#ball)"/><rect x="14" y="103.3" width="36" height="3.5" rx="1" fill="#eef2e4"/>
+  <circle cx="9" cy="116" r="2.4" fill="#ff7466"/><rect x="14" y="114.3" width="30" height="3.5" rx="1" fill="#7d9682"/>
+  <rect x="4" y="166" width="70" height="22" rx="3" fill="#000" opacity="0.3" stroke="#24402f" stroke-width="0.6"/>
+  <text x="11" y="175" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-weight="600" font-size="5.5" letter-spacing="0.6" fill="#eef2e4">YOU</text>
+  <text x="11" y="184" font-family="Avenir Next Condensed, Arial Narrow, sans-serif" font-weight="600" font-size="5.5" letter-spacing="0.6" fill="#b3c6b2">THE NET</text>
+  <rect x="50" y="169.5" width="7" height="7" rx="1" fill="#1a3927"/><rect x="59" y="169.5" width="12" height="7" rx="1" fill="#d8f24b"/>
+  <rect x="50" y="178.5" width="7" height="7" rx="1" fill="#1a3927"/><rect x="59" y="178.5" width="12" height="7" rx="1" fill="#d8f24b"/>
+  <text x="65" y="175.3" text-anchor="middle" font-family="DIN Condensed, Arial Narrow, sans-serif" font-weight="bold" font-size="6" fill="#0f2117">30</text>
+  <text x="65" y="184.3" text-anchor="middle" font-family="DIN Condensed, Arial Narrow, sans-serif" font-weight="bold" font-size="6" fill="#0f2117">15</text>
+  <rect x="84" y="27" width="230" height="162" rx="3" fill="#0f2117" stroke="#d8f24b" stroke-width="0.7"/>
+  <line x1="84" y1="36" x2="314" y2="36" stroke="#d8f24b" stroke-opacity="0.35" stroke-width="0.5"/>
+  <circle cx="89.5" cy="31.5" r="2" fill="url(#ball)"/><rect x="94" y="29.8" width="26" height="3.5" rx="1" fill="#eef2e4"/>
+  <g fill="#cbd8c8" opacity="0.8"><rect x="90" y="44" width="70" height="3"/><rect x="90" y="52" width="110" height="3"/><rect x="90" y="60" width="92" height="3"/></g>
+  <rect x="90" y="68" width="40" height="3" fill="#8fd99a"/><rect x="134" y="68" width="30" height="3" fill="#82b9f2"/>
+  <rect x="90" y="76" width="4" height="6" fill="#d8f24b"/>
+  <rect x="78" y="190" width="242" height="10" fill="#0c1c13"/>
+  <text x="88" y="197.5" font-family="Hoefler Text, Georgia, serif" font-style="italic" font-size="6" fill="#eef2e4">Thirty–Fifteen</text>
+  <circle cx="290" cy="195" r="2.2" fill="#3a8a4c" stroke="#eef2e4" stroke-width="0.6"/><circle cx="298" cy="195" r="2.2" fill="#c8643c"/><circle cx="306" cy="195" r="2.2" fill="#3468b4"/>
+</svg>

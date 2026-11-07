@@ -1,0 +1,84 @@
+{
+  "id": "root",
+  "type": "row",
+  "theme": "herdr-open-grass",
+  "ui_font": "Avenir Next",
+  "preview": "layouts/herdr-open.svg",
+  "titlebar": "none",
+  "traffic_lights": [14, 14],
+  "background": "canvas",
+  "terminal_padding": [12, 10],
+  "divider": { "width": 1, "color": "border" },
+  "children": [
+    {
+      "id": "sidebar",
+      "type": "column",
+      "size": { "px": 272 },
+      "min": 44,
+      "max": 480,
+      "background": "chrome",
+      "resizable": false,
+      "children": [
+        { "id": "brand", "type": "block", "size": { "px": 50 }, "window_drag": true,
+          "content": { "mod": "herdr-open", "props": { "part": "brand" } } },
+        { "id": "sidebar-lists", "type": "column",
+          "children": [
+            { "id": "spaces", "type": "block", "size": { "weight": 1 }, "min": 90, "content": { "mod": "herdr-open-spaces" } },
+            { "id": "agents", "type": "block", "size": { "weight": 1 }, "min": 90, "content": { "mod": "herdr-open-agents" } }
+          ] },
+        { "id": "sidebar-footer", "type": "block", "size": { "px": 96 },
+          "content": { "mod": "herdr-open", "props": { "part": "score" } } }
+      ]
+    },
+    {
+      "id": "work",
+      "type": "column",
+      "resizable": false,
+      "children": [
+        { "id": "tabs", "type": "block", "size": { "px": 50 }, "window_drag": true,
+          "content": { "mod": "herdr-open", "props": { "part": "tabs" } } },
+        {
+          "id": "work-body",
+          "type": "row",
+          "padding": 10,
+          "gap": 8,
+          "children": [
+            {
+              "id": "main",
+              "type": "block",
+              "content": {
+                "tab": "active",
+                "pane": {
+                  "header": { "content": { "mod": "herdr-open" }, "reveal": "always", "height": 28, "position": "top" },
+                  "background": "background",
+                  "border": { "width": 1, "color": "#ffffff24" },
+                  "focus": { "width": 1, "color": "accent" },
+                  "radius": 6,
+                  "gap": 10,
+                  "lone": true
+                }
+              }
+            },
+            {
+              "id": "panel",
+              "type": "column",
+              "size": { "px": 368 },
+              "min": 280,
+              "max": 900,
+              "hidden": true,
+              "children": [
+                { "id": "panel-body", "type": "stack", "active": "files",
+                  "children": [
+                    { "id": "files", "type": "block", "content": { "mod": "files" } },
+                    { "id": "changes", "type": "block", "content": { "mod": "changes" } }
+                  ] }
+              ]
+            }
+          ]
+        },
+        { "id": "status", "type": "block", "size": { "px": 30 },
+          "content": { "mod": "herdr-open", "props": { "part": "status" } } }
+      ]
+    }
+  ]
+}
